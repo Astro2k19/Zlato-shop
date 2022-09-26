@@ -1,0 +1,47 @@
+//<BUTTONS (a.btn+tab)>
+// Снипет (HTML): btn
+
+.button { 
+	display: inline-block;
+	text-align: center;
+	padding: em(9,18) em(50,18);
+	background-color: #E8AA31;
+	box-shadow: 0px 4px 20px rgba(232, 170, 49, 0.43);
+	border-radius: 3px;
+	color: $white;
+	line-height: math.div(32,18);
+	transition: box-shadow .3s ease;
+	 
+	@media (any-hover: hover) {
+		&:hover {
+			box-shadow: 0px 4px 20px rgba(232, 170, 49, 0.43);
+		}
+	}
+	&._fw {
+		width: 100%;
+	}
+
+	&_outline {
+		border: 2px solid $yellow;
+		background-color: transparent;
+		color: $yellow;
+		box-shadow: none;
+	}
+}
+
+.arrow-button {
+	display: inline-flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	gap: em(20, 18);
+	font-weight: 600;
+	font-size: rem(20);
+	line-height: math.div(46,20);
+	color: $yellow;
+
+	&:before {
+		font-size: rem(13);
+		color: inherit;
+		rotate: -90deg;
+	}
+}
