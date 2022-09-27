@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation, Parallax, Pagination, Autoplay } from 'swiper';
+import Swiper, { Navigation, Parallax, Pagination, Autoplay, Thumbs } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -63,7 +63,6 @@ function initSliders() {
 		});
 	}
 
-
 	if (document.querySelector('.product-cards__slider')) {  
 		new Swiper('.product-cards__slider', {   
 			modules: [Navigation, Pagination, Autoplay],
@@ -82,8 +81,6 @@ function initSliders() {
 			pagination: {
 				el: '.product-cards__dotts',
 				clickable: true, 
-				// dynamicBullets: true,  
-				// dynamicMainBullets: 3, 
 			},
 			
 			breakpoints: {
@@ -126,11 +123,9 @@ function initSliders() {
 			},
 			
 			
-			pagination: {  
+			pagination: {   
 				el: '.products-new__dotts', 
-				// clickable: true,
-				// dynamicBullets: true,  
-				dynamicMainBullets: 3, 
+				clickable: true,
 			},
 			
 			breakpoints: {
@@ -147,6 +142,58 @@ function initSliders() {
 				}, 
 			},
 			
+		});
+	}
+
+	if (document.querySelector('.images-product')) {   
+		
+		const productThumbs = new Swiper('.product-thumb-slider', { 
+
+			modules: [],
+			observer: true,
+			observeParents: true,   
+			slidesPerView: 3,
+			spaceBetween: 15,
+			speed: 1200,
+			loop: true, 
+
+			autoplay: {   
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+						
+			breakpoints: {
+				1350: { 
+					slidesPerView: 4,
+					spaceBetween: 15,
+				}, 
+			},
+			
+		}); 
+
+
+		 new Swiper('.product-main-slider', { 
+
+			modules: [Thumbs],
+			observer: true,
+			observeParents: true,   
+			slidesPerView: 1,
+			spaceBetween: 33,  
+			speed: 1200,
+			loop: true, 
+			fadeEffect: {
+				crossFade: true
+			},
+
+			thumbs: {
+				swiper: productThumbs 
+			}, 
+
+			autoplay: {   
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+						
 		});
 	}
 

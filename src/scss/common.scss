@@ -56,14 +56,14 @@
     // .product-cards__slider
 
     &__slider {
-        @include adaptiveValue('margin-bottom', 40,20,0);
         margin-inline: -20px;
-        padding: 15px 20px;
+        padding: 15px 20px; 
     }
 
     // .product-cards__wrapper
 
     &__wrapper {  
+        @include adaptiveValue('margin-bottom', 40,20,0); 
     }
 
     // .product-cards__slide
@@ -281,7 +281,7 @@
 
     // .products-new__content
 
-    &__content { 
+    &__content {  
         min-width: 0;
 
         @media (min-width:$tablet){ 
@@ -364,7 +364,7 @@
 }
  
 .sale-products {
-    @include adaptiveValue('padding-block', 120, 40, 0);
+    @include adaptiveValue('padding-block', 100, 40, 0);
 
     &_no-bottom {
         padding-bottom: 0;
@@ -380,7 +380,6 @@
     font-size: rem(24);
     line-height: math.div(29,24);
 }
-
 
 .page {
 
@@ -445,7 +444,10 @@
         line-height: math.div(20,16);
         color: $yellow;
     }
-}
+} 
+
+
+
 
 
 

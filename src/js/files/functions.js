@@ -1,5 +1,6 @@
 // Подключение списка активных модулей
 import { flsModules } from "./modules.js";
+import { closeSubmenu } from "./script.js";
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML */
 export function isWebp() {
@@ -424,8 +425,10 @@ export function menuInit() {
 				} 
 
 				if (document.querySelector('.menu-catalog__sub-menu._open')) { 
-					document.querySelector('.sub-menu-catalog__row._active').classList.remove('_active')
-					document.querySelector('.menu-catalog__sub-menu._open').classList.remove('_open')
+					const subMenu = document.querySelector('.sub-menu-catalog._open');
+					const activeSubmenu = subMenu.querySelector('.sub-menu-catalog__row._active');
+			 
+					closeSubmenu(subMenu, activeSubmenu, true);  
 				}
 			}
 		});
